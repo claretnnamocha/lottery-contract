@@ -1,4 +1,4 @@
-# Inbox
-First smart contract project with solidity &amp; node
+# lottery-contract
+A simple raffle/lottery app built with node & solidity
 
 Rinkeby Testnet Contract Address:
