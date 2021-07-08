@@ -1,0 +1,7 @@
+{
+  "solidity.compileUsingRemoteVersion": "0.4.17+commit.bdeb9e52",
+  "solidity.compileUsingLocalVersion": "0.4.17+commit.bdeb9e52",
+  "solidity.defaultCompiler": "localNodeModule",
+  "solidity.enabledAsYouTypeCompilationErrorCheck": true,
+  "solidity.solhintRules": {}
+}

@@ -1,0 +1,21 @@
+{
+  "name": "lottery-contract",
+  "version": "1.0.0",
+  "description": "A simple raffle/lottery app built with node & solidity",
+  "main": "index.js",
+  "author": "Claret Nnamocha <devclareo@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ganache-cli": "^6.12.2",
+    "mocha": "^9.0.2",
+    "solc": "0.4.17",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "1.3.5"
+  },
+  "scripts": {
+    "start": "node src/index",
+    "test": "mocha 'src/test/*.js'"
+  }
+}
