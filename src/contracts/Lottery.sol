@@ -38,13 +38,8 @@ contract Lottery {
         uint index = rand % players.length;
         address winner = players[index];
         
-        // send 95% of purse to winner and 5% to manager 😎
-        uint earnings = uint(ufixed(this.balance) * 0.95);
-        uint balance = this.balance - earnings;
-        
-        // transfers
-        winner.transfer(earnings);
-        manager.transfer(balance);
+        // send balance to the winner 😎
+        winner.transfer(this.balance);
         
         // Reset lottery
         players = new address[](0);

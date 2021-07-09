@@ -5,10 +5,9 @@ const { compile } = require("../jobs");
 const { contracts } = compile();
 
 const web3 = new Web3(ganache.provider());
-let accounts;
 
 describe("Lottery", () => {
-  let lottery;
+  let lottery, accounts;
 
   it("can get accounts", async () => {
     accounts = await web3.eth.getAccounts();
@@ -20,7 +19,7 @@ describe("Lottery", () => {
     const { bytecode, interface: intf } = contract;
 
     lottery = await new web3.eth.Contract(JSON.parse(intf))
-      .deploy({ data: bytecode, arguments: [INITIAL_MESSAGE] })
+      .deploy({ data: bytecode })
       .send({ from: accounts[0], gas: "1000000" });
 
     assert.ok(lottery.options.address);

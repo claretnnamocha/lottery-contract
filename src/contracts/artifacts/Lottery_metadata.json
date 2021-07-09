@@ -92,9 +92,9 @@
 	},
 	"sources": {
 		"src/contracts/Lottery.sol": {
-			"keccak256": "0xd1fc4dd1d9c024209b8498c75478cb495a7ae3bd250ecdb9bf6b1a0e60b8350f",
+			"keccak256": "0x377505bb10e27059b0b48ce3fe47f47973a67eb398bbf0602e4b35d1cbddb08f",
 			"urls": [
-				"bzzr://b6229ab08c046b60f6742d133efffab40bae53dc16befe42a3baad284e088632"
+				"bzzr://26ce48f3f17908a408738de0ecc4f770b34c4478d1dcf7862631538a1e06b411"
 			]
 		}
 	},

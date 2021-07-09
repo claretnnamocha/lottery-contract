@@ -17,6 +17,6 @@ module.exports = async () => {
 
   const accounts = await web3.eth.getAccounts();
   return await new web3.eth.Contract(JSON.parse(intf))
-    .deploy({ data: bytecode, arguments: [] })
+    .deploy({ data: bytecode })
     .send({ from: accounts[0], gas: "1000000" });
 };
