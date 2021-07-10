@@ -2,12 +2,10 @@ pragma solidity 0.4.17;
 
 contract Lottery {
     address private manager;
-    
-    address[] private players;
-    
-    uint private purse;
 
-    function Lottery() public{
+    address[] private players;
+
+    function Lottery() public {
         manager = msg.sender;
     }
 
@@ -19,34 +17,33 @@ contract Lottery {
         return players;
     }
 
-    function getPlayerCount() public view returns (uint) {
+    function getPlayerCount() public view returns (uint256) {
         return players.length;
     }
-    
-    function enter() public payable{
+
+    function enter() public payable {
         // Must send exactly 1 ether
-        require(msg.value > 1 ether);
-        
+        require(msg.value >= 0.01 ether);
+
         // Manager cannot enter lottery competition
         require(msg.sender != manager);
-        
+
         players.push(msg.sender);
     }
-    
-    function pickWinner() restricted public {
-        uint rand =  uint(keccak256(block.difficulty, now, players));
-        uint index = rand % players.length;
+
+    function pickWinner() public restricted {
+        uint256 rand = uint256(keccak256(block.difficulty, now, players));
+        uint256 index = rand % players.length;
         address winner = players[index];
-        
+
         // send balance to the winner 😎
         winner.transfer(this.balance);
-        
+
         // Reset lottery
         players = new address[](0);
     }
-    
-    modifier restricted(){
-        
+
+    modifier restricted() {
         require(msg.sender == manager);
         _;
     }
