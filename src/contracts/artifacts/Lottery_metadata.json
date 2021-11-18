@@ -6,6 +6,20 @@
 	"output": {
 		"abi": [
 			{
+				"constant": true,
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"constant": false,
 				"inputs": [],
 				"name": "pickWinner",
@@ -81,7 +95,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/contracts/Lottery.sol": "Lottery"
+			"contracts/Lottery.sol": "Lottery"
 		},
 		"libraries": {},
 		"optimizer": {
@@ -91,10 +105,10 @@
 		"remappings": []
 	},
 	"sources": {
-		"src/contracts/Lottery.sol": {
-			"keccak256": "0x377505bb10e27059b0b48ce3fe47f47973a67eb398bbf0602e4b35d1cbddb08f",
+		"contracts/Lottery.sol": {
+			"keccak256": "0x852b75b7e4024c2a8adaed57ddb491eccfb413af63d9a0c71e74e80605b31a79",
 			"urls": [
-				"bzzr://26ce48f3f17908a408738de0ecc4f770b34c4478d1dcf7862631538a1e06b411"
+				"bzzr://67047183f00a338fc6d5a7192fc9cb02f2985a62e301b8bd9e3e9221b3e99c8b"
 			]
 		}
 	},
