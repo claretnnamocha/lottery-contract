@@ -1,11 +1,12 @@
-pragma solidity 0.4.17;
+// SPDX-License-Identifier: None
+pragma solidity 0.8.9;
 
 contract Lottery {
     address private manager;
 
     address[] private players;
 
-    function Lottery() public {
+    constructor() {
         manager = msg.sender;
     }
 
@@ -13,7 +14,7 @@ contract Lottery {
         return manager;
     }
 
-    function getPlayers() public view returns (address[]) {
+    function getPlayers() public view returns (address[] memory) {
         return players;
     }
 
@@ -22,7 +23,7 @@ contract Lottery {
     }
 
     function getBalance() public view returns (uint256) {
-        return this.balance / 1 ether;
+        return address(this).balance / 1 ether;
     }
 
     function enter() public payable isNotOwner {
@@ -39,19 +40,19 @@ contract Lottery {
     }
 
     function pickWinner() public isOwner {
-        uint256 rand = uint256(keccak256(block.difficulty, now, players));
+        uint256 rand = uint256(keccak256(abi.encodePacked(block.timestamp)));
         uint256 index = rand % players.length;
 
-        address winner = players[index];
+        address payable winner = payable(players[index]);
 
         // wins is 90% of balance
-        uint256 wins = ((this.balance) * 9) / 10;
+        uint256 wins = (address(this).balance * 9) / 10;
 
         // owner commission of 10% goes to owner 😁
-        uint256 commission = this.balance - wins;
+        uint256 commission = address(this).balance - wins;
 
         winner.transfer(wins);
-        manager.transfer(commission);
+        payable(manager).transfer(commission);
 
         // Reset lottery
         players = new address[](0);
